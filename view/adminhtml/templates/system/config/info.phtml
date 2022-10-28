@@ -1,0 +1,14 @@
+<?php
+/** @var $block Aheadworks\BuildifyMobileAddon\Block\Adminhtml\System\Config\Info */
+$viewModel = $block->getViewModel();
+$keysStatus = $viewModel->isMobileBuildifyKeysActive() ? __('Active') : __('Not Active');
+?>
+<div class="bma-settings-notice">
+    <p>
+        <strong class="important-label"><?= $block->escapeHtml(__('Mobile App Buildify: ')) ?></strong>
+        <?= $block->escapeHtml(__('If the keys are active then you do not need to fill in the public and private key fields for the module to work.')) ?>
+    </p>
+    <ul class="options-list">
+        <li><strong><?= $block->escapeHtml(__('Mobile App Buildify Keys Status:')) ?></strong> <?= $block->escapeHtml($keysStatus) ?></li>
+    </ul>
+</div>

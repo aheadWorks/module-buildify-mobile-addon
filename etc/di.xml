@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Aheadworks\BuildifyMobileAddon\Api\BuildifyApiKeyInterface" type="Aheadworks\BuildifyMobileAddon\Model\BuildifyApiKey"/>
+    <type name="Aheadworks\Buildify\Model\Api\Request\Curl">
+        <plugin name="awBuildifyMobileAddon_setBuildifyMobileKeys"
+                type="Aheadworks\BuildifyMobileAddon\Plugin\AwBuildify\Model\Api\Request\CurlPlugin" />
+    </type>
+    <type name="Aheadworks\Buildify\Model\Config">
+        <plugin name="awBuildifyMobileAddon_isLockBuildifyHomepage"
+                type="Aheadworks\BuildifyMobileAddon\Plugin\AwBuildify\Model\ConfigPlugin" sortOrder="10"/>
+    </type>
+    <type name="Aheadworks\Buildify\Model\Entity\Layout">
+        <arguments>
+            <argument name="layoutMap" xsi:type="array">
+                <item name="mobileappconnector_homepage_index" xsi:type="const">
+                    Aheadworks\MobileAppConnector\Api\Data\HomepageInterface::AW_MOBILEAPPCONNECTOR_HOMEPAGE_CONTENT
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
